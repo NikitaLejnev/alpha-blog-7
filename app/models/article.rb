@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # An article model with following properties:
 class Article < ApplicationRecord
   # title: required, from 6 to 100 characters
