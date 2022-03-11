@@ -1,18 +1,29 @@
 <h1>Create a new article</h1>
 
-<%= form_with scope: :article, url: articles_path, local: true do |f| %>
+<%= if @article.errors.any? %>
+  <h2>Couldn't create a new article because of these errors:</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with scope: :article, url: articles_path, local: true, data: { turbo: false } do |form| %>
   <p>
-    <%= f.label :title %><br />
-      <%= f.text_field :title %>
+    <%= form.label :title %><br />
+      <%= form.text_field :title %>
   </p>
 
   <p>
-    <%= f.label :description %><br />
-      <%= f.text_area :description %>
+    <%= form.label :description %><br />
+      <%= form.text_area :description %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= form.submit %>
   </p>
 
   <% end %>
