@@ -2,6 +2,7 @@
 
 # A user model with following properties:
 class User < ApplicationRecord
+  has_many :articles
   # username: required, unique case-insensitive, 3 to 25 characters
   validates :username,
             presence: true,
