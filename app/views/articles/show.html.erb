@@ -1,7 +1,8 @@
 <h1>Article details</h1>
 
 <p><strong>Title: <%= @article.title %></strong></p>
-<p><strong>Description: <%= @article.description %></strong></p>
+<p><strong>Title: <%= @article.user.username %></strong></p>
+<p>Description: <%= @article.description %></p>
 
 <%= link_to 'Edit' , edit_article_path(article) %>
 <%= link_to 'Delete' , article_path(article), data: {'turbo-method': :delete} %>
