@@ -2,6 +2,7 @@
 
 # A user model with following properties:
 class User < ApplicationRecord
+  before_save { self.email = email.downcase }
   has_many :articles
   # username: required, unique case-insensitive, 3 to 25 characters
   validates :username,
