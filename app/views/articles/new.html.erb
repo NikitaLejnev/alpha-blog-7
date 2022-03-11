@@ -1,15 +1,6 @@
 <h1>Create a new article</h1>
 
-<%= if @article.errors.any? %>
-  <h2>Couldn't create a new article because of these errors:</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |message| %>
-      <li>
-        <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'form' %>
 
 <%= form_with scope: :article, url: articles_path, local: true, data: { turbo: false } do |form| %>
   <p>
